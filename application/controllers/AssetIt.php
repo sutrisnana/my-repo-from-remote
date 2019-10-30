@@ -220,7 +220,8 @@ class AssetIt extends CI_Controller
       $this->load->view('templates/foot');
     } else {
       $this->History_model->perbaikanPC_model();
-      //$this->Partit_model->updateStokPart_model();
+      //$this->Partit_model->updateStokPart_model(); 
+      //fungsi ini sudah dikerjakan oleh triger pada database > tb_history
       $this->Partit_model->deletePartStok0_model();
       $this->session->set_flashdata('flash', 'Ditambahkan');
       redirect('assetit');
