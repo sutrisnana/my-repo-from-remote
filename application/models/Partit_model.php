@@ -51,10 +51,12 @@ class Partit_model extends CI_model
   //Databae SQL ------------------------------------------------------
   public function getPartAX_SqlModel()
   {
+    //$where = "INVENTITEMGROUPITEM.ITEMGROUPID=92 OR INVENTITEMGROUPITEM.ITEMGROUPID=63";
     $this->dbSql->select('*');
     $this->dbSql->from('INVENTTABLE');
     $this->dbSql->join('INVENTITEMGROUPITEM', 'INVENTITEMGROUPITEM.ITEMID = INVENTTABLE.ITEMID');
     $this->dbSql->where('INVENTITEMGROUPITEM.ITEMGROUPID', '92');
+    //$this->dbSql->where($where);
     return $this->dbSql->get()->result_array();
   }
 }
