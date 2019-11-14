@@ -118,7 +118,7 @@
                 </div>
                 <div class="col">
                   <label for="tgl_perbaikan" class="col-form-label-sm text-muted">Date</label>
-                  <input placeholder="Date" type="text" autocomplete="off" class="form-control form-control-sm datepicker" name="tgl_perbaikan" id="tgl_perbaikan">
+                  <input placeholder="Date" type="text" autocomplete="off" class="form-control form-control-sm datepicker-here" data-language='en' name="tgl_perbaikan" id="tgl_perbaikan">
                   <small class="form-text text-danger"><?= form_error('tgl_perbaikan'); ?></small>
                 </div>
               </div>

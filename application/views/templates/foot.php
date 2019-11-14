@@ -56,6 +56,18 @@
 
 <script src="<?= base_url('assets/'); ?>/js/dtp.js"></script>
 
+<!-- http://t1m0n.name/air-datepicker/docs/ -->
+<script src="<?= base_url('assets/'); ?>/dist/js/datepicker.min.js"></script>
+<!-- Include English language -->
+<script src="<?= base_url('assets/'); ?>/dist/js/i18n/datepicker.en.js"></script>
+
+<style>
+  .datepicker {
+    z-index: 1151;
+  }
+</style>
+
+
 </body>
 
 </html>

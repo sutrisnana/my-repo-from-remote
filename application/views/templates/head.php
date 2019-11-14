@@ -18,6 +18,9 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- http://t1m0n.name/air-datepicker/docs/-->
+    <link href="<?= base_url('assets/'); ?>/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body id="page-top">

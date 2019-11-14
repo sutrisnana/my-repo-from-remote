@@ -123,10 +123,19 @@
                   </div>
                 </div>
                 <div class="row ml-2 mr-2">
-                  <div class="col-6">
+                  <div class="col-5">
                     <label for="idpc" class="col-form-label-sm text-muted">BPP Number</label>
                     <input class="form-control form-control-sm" id="bpp_number" name="bpp_number" type="text" autocomplete="off" placeholder="">
                     <small class="form-text text-danger"><?= form_error('bpp_number'); ?></small>
+                  </div>
+                  <div class="col-2">
+                    <label for="idpc" class="col-form-label-sm text-muted">Qty</label>
+                    <input class="form-control form-control-sm" id="part_qty" name="part_qty" type="text" autocomplete="off" placeholder="">
+                    <small class="form-text text-danger"><?= form_error('part_qty'); ?></small>
+                  </div>
+                  <div class="col-">
+                    <label for="idpc" class="col-form-label-sm text-muted">Receipt Date</label>
+                    <input placeholder="Tanggal" type="text" autocomplete="off" class="form-control form-control-sm datepicker-here" data-language='en' name="receipt_date" id="receipt_date">
                   </div>
                 </div>
                 <div class="row ml-2 mr-2">
@@ -135,17 +144,7 @@
                     <textarea class="form-control form-control-sm" id="part_note" name="part_note" type="text" autocomplete="off" placeholder=""></textarea>
                   </div>
                 </div>
-                <div class="row ml-2 mr-2">
-                  <div class="col-6">
-                    <label for="idpc" class="col-form-label-sm text-muted">Qty</label>
-                    <input class="form-control form-control-sm" id="part_qty" name="part_qty" type="text" autocomplete="off" placeholder="">
-                    <small class="form-text text-danger"><?= form_error('part_qty'); ?></small>
-                  </div>
-                  <div class="col-6">
-                    <label for="idpc" class="col-form-label-sm text-muted">Receipt Date</label>
-                    <input placeholder="Tanggal" type="text" autocomplete="off" class="form-control form-control-sm datepicker" name="receipt_date" id="receipt_date">
-                  </div>
-                </div>
+
                 <!--
           Upload file--------------------------------------
           <div class="card mt-3 ml-2" style="width: 28rem;">
