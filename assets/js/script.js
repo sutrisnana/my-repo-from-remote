@@ -195,3 +195,43 @@ $(function () {
 		});
 	});
 });
+
+$(function () {
+	$(".detailLaptop").on("click", function () {
+		$("#modalLaptopScrollableTitle").html("Detail Laptop");
+		const id = $(this).data("id");
+
+		$.ajax({
+			url: "http://10.0.0.23/ci-assetit/Laptop/getLaptopById",
+			data: {
+				id: id
+			},
+
+			method: "post",
+			dataType: "json",
+			success: function (data) {
+				console.log(id);
+				$("#id_laptop").val(data.id_laptop);
+				$("#user").val(data.user);
+				$("#dept").val(data.dept);
+				$("#jenis").val(data.jenis);
+				$("#merk").val(data.merk);
+				$("#pcname").val(data.pcname);
+				$("#ram").val(data.ram);
+				$("#vga").val(data.vga);
+				$("#hdd").val(data.hdd);
+				$("#ukuran").val(data.ukuran);
+				$("#monitor").val(data.monitor);
+				$("#ip").val(data.ip);
+				$("#os").val(data.os);
+				$("#license").val(data.license);
+				$("#office").val(data.office);
+				$("#antivirus").val(data.antivirus);
+				$("#pcstatus").val(data.pcstatus);
+				$("#tahun").val(data.tahun);
+				$("#nopengajuan").val(data.nopengajuan);
+
+			}
+		});
+	});
+});

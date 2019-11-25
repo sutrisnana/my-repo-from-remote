@@ -24,4 +24,9 @@ class Laptop extends CI_Controller
         $this->load->view('laptop/index', $data);
         $this->load->view('templates/foot');
     }
+
+    public function getLaptopById()
+    {
+        echo json_encode($this->Laptop_model->getLaptopById_model($_POST['id']));
+    }
 }
