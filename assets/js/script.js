@@ -18,7 +18,7 @@ $(function () {
 			dataType: "json",
 			success: function (data) {
 				$("#id").val(data.id);
-				$("#menuname").val(data.menu);
+				$("#menu").val(data.menu);
 			}
 		});
 	});
