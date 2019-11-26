@@ -64,7 +64,7 @@
 
               <td><a href="<?= base_url(); ?>laptop/historyLaptop/<?= $l['id_laptop']; ?>" class="badge badge-primary historyLaptop" data-toggle="modal" data-target="#modalLaptop">History</a></td>
               <td><a href="" class="badge badge-info detailLaptop" data-id="<?= $l['id']; ?>" data-toggle="modal" data-target="#modalLaptop">Detail</a></td>
-              <td><a href="<?= base_url(); ?>laptop/ubahLaptop/<?= $l['id']; ?>" class="badge badge-secondary ubahLaptop" data-toggle="modal" data-target="#modalLaptop">Ubah</a></td>
+              <td><a href="" class="badge badge-secondary editLaptop" data-id="<?= $l['id']; ?>" data-toggle="modal" data-target="#modalLaptop">Ubah</a></td>
               <td><a href="<?= base_url(); ?>laptop/hapusLaptop/<?= $l['id']; ?>" class="badge badge-danger" onclick="return confirm('Hapus Data.?');">Hapus</a></td>
             </tr>
           <?php endforeach; ?>
@@ -248,10 +248,9 @@
             </div>
             <hr width="100%">
           </div>
-
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" id="btnSubmit" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
