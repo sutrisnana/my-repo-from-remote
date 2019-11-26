@@ -70,17 +70,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('menu/index') ?>" method="POST">
-        <input type="hidden" name="id" id="id">
-        <div class="modal-body">
+      <div class="modal-body">
+        <form action="<?= base_url('menu/index') ?>" method="POST">
+          <input type="hidden" name="id" id="id">
           <div class="form-group">
             <input type="text" class="form-control form-control-sm" id="menu" name="menu">
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" id="btnSubmit" class="btn btn-primary">Add</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="btnSubmit" class="btn btn-primary">Add</button>
+      </div>
       </form>
     </div>
   </div>

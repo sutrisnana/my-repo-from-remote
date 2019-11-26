@@ -83,7 +83,7 @@ class Menu extends CI_Controller
     $data['user'] = $this->User_model->getUserBySession();
     $data['menu'] = $this->Menu_model->getAllMenu_model();
 
-    $this->form_validation->set_rules('menuname', 'Menu', 'required');
+    $this->form_validation->set_rules('menu', 'Menu', 'required');
 
     if ($this->form_validation->run() == FALSE) {
       $this->load->view('templates/head', $data);

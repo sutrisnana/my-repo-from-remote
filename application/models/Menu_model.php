@@ -64,7 +64,7 @@ class Menu_model extends CI_model
   {
     $data = [
       "id" => $this->input->post('id', true),
-      "menu" => $this->input->post('menuname', true)
+      "menu" => $this->input->post('menu', true)
     ];
 
     $this->db->where('id', $this->input->post('id'));
