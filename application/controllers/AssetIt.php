@@ -72,7 +72,7 @@ class AssetIt extends CI_Controller
     $config['attributes'] = array('class' => 'page-link');
     $config['total_rows'] = $this->db->count_all_results();
     $data['total_rows'] = $config['total_rows'];
-    $config['per_page'] = 10;
+    $config['per_page'] = 15;
 
     //initialize
     $this->pagination->initialize($config);

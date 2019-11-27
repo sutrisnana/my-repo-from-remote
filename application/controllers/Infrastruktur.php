@@ -65,7 +65,7 @@ class Infrastruktur extends CI_Controller
     $config['attributes'] = array('class' => 'page-link');
     $config['total_rows'] = $this->db->count_all_results();
     $data['total_rows'] = $config['total_rows'];
-    $config['per_page2'] = 10;
+    $config['per_page2'] = 15;
 
     //initialize
     $this->pagination->initialize($config);
