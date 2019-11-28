@@ -12,6 +12,20 @@
         </div>
       </div>
     <?php endif; ?>
+
+    <!-- Pesan Eror -->
+    <?php if (validation_errors()) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?= validation_errors(); ?>
+      </div>
+    <?php endif; ?>
+
+
+    <!-- Pesan Sukses -->
+    <?= $this->session->flashdata('message'); ?>
+
+    <?= $this->session->flashdata('img_uploaded_msg'); ?>
+
   </div>
 </div>
 
@@ -40,6 +54,7 @@
             <th scope="col" class="text-center">Receipt</th>
             <th scope="col" class="text-center">Note</th>
             <th scope="col" class="text-center">BPP</th>
+            <th scope="col" class="text-center">Image</th>
             <!--<th scope="col">BPP</th>
                       <th scope="col">Bayar</th>
                       -->
@@ -52,9 +67,12 @@
               <td><?= $ast['part_name']; ?></td>
               <td><?= $ast['part_detail']; ?></td>
               <td><?= $ast['part_qty']; ?></td>
-              <td><?= $ast['receipt_date']; ?></td>
+              <td><?= date('d F Y', $ast['receipt_date']); ?></td>
               <td><?= $ast['part_note']; ?></td>
               <td><?= $ast['bpp_number']; ?></td>
+              <td style="text-align: center;">
+                <a href="<?= $ast['part_id']; ?>" data-toggle="modal" data-target="#modalImage" class="badge badge-success">View</a>
+              </td>
               <!--<td style="text-align: center;"><a href="<?= $ast['part_id']; ?>" data-toggle="modal" data-target="#modalBpp" class="badge badge-info" >View</a></td> 
                       <td style="text-align: center;"><a href="" data-toggle="modal" data-target="#modalPembayaran" class="badge badge-info" >View</a></td> 
                       -->
@@ -70,6 +88,7 @@
             <th scope="col" class="text-center">Receipt</th>
             <th scope="col" class="text-center">Note</th>
             <th scope="col" class="text-center">BPP</th>
+            <th scope="col" class="text-center">Image</th>
             <!--<th scope="col">BPP</th>
                       <th scope="col">Bayar</th>
                       -->
@@ -79,7 +98,6 @@
     </ul>
   </div>
 </div>
-
 
 <!-- Modal Add Part -->
 <div class="modal fade" id="modalAddPart" tabindex="-1" role="dialog" aria-labelledby="JudulModal2" aria-hidden="true">
@@ -91,10 +109,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url(); ?>Partit/tambahPart" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" id="id">
 
-        <div class="modal-body mt-1">
+      <div class="modal-body mt-1">
+        <form action="<?= base_url(); ?>Partit/tambahPart" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" id="id">
           <div class="row align-items-start">
             <div class="container">
               <div class="row ml-2 mr-2">
@@ -148,36 +166,45 @@
                   <textarea class="form-control form-control-sm" id="part_note" name="part_note" type="text" autocomplete="off" placeholder=""></textarea>
                 </div>
               </div>
-
-              <!--
-          Upload file--------------------------------------
-          <div class="card mt-3 ml-2" style="width: 28rem;">
-              <div class="card-body ml-3">
-                  <div class="row">    
-                      <table width="500" border="0">
-                          <tr>
-                              <td width="100">BPP</td>
-                              <td><input type="file" name="nama_file" required></td>
-                          </tr>
-                      </table>     
+              <div class="row ml-2 mr-2">
+                <div class="col">
+                  <label for="image">Photo</label>
+                  <input class="form-control-file <?= form_error('image') ? 'is-invalid' : '' ?>" type="file" name="image" />
+                  <div class="invalid-feedback">
+                    <?php echo form_error('image') ?>
                   </div>
-                  <div class="row mt-2">    
-                      <table width="500" border="0">
-                          <tr>
-                              <td width="100">Pembayaran</td>
-                              <td><input type="file" name="nama_file" required></td>
-                          </tr>
-                      </table>     
-                  </div>   
+                </div>
               </div>
-          </div>-->
             </div>
           </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
+        <button type="submit" class="btn btn-primary" id="btnSubmit">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Image-->
+<div class="modal fade" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="modalImageLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalImageLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
-          <button type="submit" class="btn btn-primary" id="btnSubmit">Simpan</button>
-      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="upload_file" id="upload-file" value="upl-img" class="btn btn-primary mrgT">Upload</button>
+      </div>
     </div>
   </div>
 </div>

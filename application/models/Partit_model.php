@@ -15,6 +15,25 @@ class Partit_model extends CI_model
     return $this->db->get_where('part_it', ['part_id' => $id])->row_array();
   }
 
+  private function _uploadImage()
+  {
+    $config['upload_path'] = './upload/images_part/';
+    $config['allowed_types'] = 'jpg|png';
+    $config['file_name'] = $this->input->post('part_id', true);
+    $config['overwrite'] = true;
+    $config['max_size'] = 1024; // 1MB
+    // $config['max_width'] = 1024;
+    // $config['max_height'] = 768;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('image')) {
+      return $this->upload->data("file_name");
+    }
+
+    return "default.jpg";
+  }
+
   public function addNewPart_model()
   {
     $this->dbSql->select('NAMEALIAS');
@@ -30,9 +49,20 @@ class Partit_model extends CI_model
       "bpp_number" => $this->input->post('bpp_number', true),
       "part_note" => $this->input->post('part_note', true),
       "part_qty" => $this->input->post('part_qty', true),
+      "receipt_date" => strtotime($this->input->post('receipt_date', true)),
       "item_id_ax" => $this->input->post('InvAx', true)
     ];
     $this->db->insert('part_it', $data);
+  }
+
+  public function saveImagePart_model()
+  {
+    $data = [
+      "id" => $this->input->post('', true),
+      "image" => $this->_uploadImage(),
+      "id_part" => $this->input->post('part_id', true)
+    ];
+    $this->db->insert('image_part', $data);
   }
 
   /*public function updateStokPart_model()

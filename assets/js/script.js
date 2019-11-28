@@ -1,5 +1,5 @@
-$(function() {
-	$(".ModalUbah").on("click", function() {
+$(function () {
+	$(".ModalUbah").on("click", function () {
 		$("#newMenuModalLabel").html("Ubah Data User");
 		document.getElementById("btnSubmit").style.visibility = "visible";
 		$(".modal-footer button[type=submit]").html("Ubah Data");
@@ -16,7 +16,7 @@ $(function() {
 			},
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				$("#id").val(data.id);
 				$("#menu").val(data.menu);
 			}
@@ -24,8 +24,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".modalUbahSubmenu").on("click", function() {
+$(function () {
+	$(".modalUbahSubmenu").on("click", function () {
 		$("#newSubMenuModalLabel").html("Ubah Data Submenu");
 		document.getElementById("btnSubmit").style.visibility = "visible";
 		$(".modal-footer button[type=submit]").html("Ubah Data");
@@ -42,7 +42,7 @@ $(function() {
 			},
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				$("#menu_id").val(data.menu_id);
 				$("#title").val(data.title);
 				$("#url").val(data.url);
@@ -54,8 +54,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".UbahUser").on("click", function() {
+$(function () {
+	$(".UbahUser").on("click", function () {
 		$("#modalUbahUserLabel").html("Ubah Data User");
 		document.getElementById("btnSubmit").style.visibility = "visible";
 		$(".modal-footer button[type=submit]").html("Ubah Data");
@@ -68,7 +68,7 @@ $(function() {
 			},
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				$("#userid").val(data.user_id);
 				$("#name").val(data.name);
 				$("#username").val(data.user_name);
@@ -80,8 +80,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".pilihPart").on("click", function() {
+$(function () {
+	$(".pilihPart").on("click", function () {
 		const id = $("#part_id").val();
 		$.ajax({
 			url: "http://10.0.0.23/ci-assetit/Partit/getPartName",
@@ -91,7 +91,7 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				//console.log(data.part_name)
 				$("#partname").val(data.part_detail);
 				$("#bpp").val(data.bpp_number);
@@ -105,8 +105,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$("#idpc_perbaikan").on("change", function() {
+$(function () {
+	$("#idpc_perbaikan").on("change", function () {
 		//Ambil value dari combo yg diselect
 		var comboid = $(this).val();
 
@@ -118,7 +118,7 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				$("#user").val(data.user);
 				//console.log(data.user)
 			}
@@ -126,8 +126,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".detailHistory").on("click", function() {
+$(function () {
+	$(".detailHistory").on("click", function () {
 		$("#modalDetailPartLabel").html("Detail Pemakaian Part");
 		const id = $(this).data("id");
 		//onsole.log(id);
@@ -140,7 +140,7 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				//console.log(data.part_name)
 				$("#bpp").val(data.nomor_bpp);
 				$("#receiptdate").val(data.part_receipt);
@@ -163,8 +163,8 @@ $(function() {
 	console.log($('#tipe').val())
 });*/
 
-$(function() {
-	$(".detailAplikasi").on("click", function() {
+$(function () {
+	$(".detailAplikasi").on("click", function () {
 		$("#modalDetailAplikasiLabel").html("Aplikasi Yang Terinstal");
 		const id = $(this).data("id");
 		console.log(id);
@@ -177,14 +177,13 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
-				console.log(data);
+			success: function (data) {
 				var table_header =
 					"<table class='table table-striped table-bordered'><tr><tr></tr></thead><tbody>";
 				var table_footer = "</tbody></table>";
 				var html = "";
 
-				data.forEach(function(element) {
+				data.forEach(function (element) {
 					html += "<tr><td>" + element.nama_aplikasi + "</td></tr>";
 				});
 
@@ -196,8 +195,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".detailLaptop").on("click", function() {
+$(function () {
+	$(".detailLaptop").on("click", function () {
 		$("#modalLaptopScrollableTitle").html("Detail Laptop");
 		document.getElementById("btnSubmit").style.visibility = "hidden";
 		const id = $(this).data("id");
@@ -210,7 +209,7 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				console.log(id);
 				$("#id_laptop").val(data.id_laptop);
 				$("#user").val(data.user);
@@ -236,8 +235,8 @@ $(function() {
 	});
 });
 
-$(function() {
-	$(".editLaptop").on("click", function() {
+$(function () {
+	$(".editLaptop").on("click", function () {
 		$("#modalLaptopScrollableTitle").html("Detail Laptop");
 		document.getElementById("btnSubmit").style.visibility = "visible";
 		const id = $(this).data("id");
@@ -250,7 +249,7 @@ $(function() {
 
 			method: "post",
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				console.log(id);
 				$("#id_laptop").val(data.id_laptop);
 				$("#user").val(data.user);
