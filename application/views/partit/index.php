@@ -219,7 +219,7 @@
       </div>
       <div class="modal-body">
         <embed src="../content/<?= $data['ast']['idpc'] ?>" type="application/pdf" frameborder="0" width="100%" height="400px">
-        <?php console ?>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>

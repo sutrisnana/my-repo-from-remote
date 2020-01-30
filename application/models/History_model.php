@@ -18,7 +18,7 @@ class History_model extends CI_model
     $data = [
       "idpc" => $this->input->post('idpc_perbaikan', true),
       "user" => $this->input->post('user', true),
-      "tgl_perbaikan" => $this->input->post('tgl_perbaikan', true),
+      "tgl_perbaikan" => strtotime($this->input->post('tgl_perbaikan', true)),
       "tipe" => $this->input->post('tipe', true),
       "perubahan" => $this->input->post('perubahan', true),
       "note" => $this->input->post('note', true),
@@ -26,7 +26,7 @@ class History_model extends CI_model
       "nomor_bpp" => $this->input->post('bpp', true),
       "nomor_wo" => $this->input->post('nomor_wo', true),
       "part_note" => $this->input->post('partname', true),
-      "part_receipt" => $this->input->post('receiptdate', true),
+      "part_receipt" => strtotime($this->input->post('receiptdate', true)),
       "part_id" => $this->input->post('partid', true),
       "part_id_ax" => $this->input->post('id_ax', true),
       "part_qty" => $this->input->post('partqty', true)

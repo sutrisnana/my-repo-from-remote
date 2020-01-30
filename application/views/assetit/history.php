@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-2">
               <p class="card-text"><?= $row['perubahan']; ?></p>
-              <p class="card-text font-weight-light"><?= $row['tgl_perbaikan']; ?></p>
+              <p class="card-text font-weight-light"><?= date('d F Y', $row['tgl_perbaikan']); ?></p>
             </div>
             <div class="col-2">
               <p class="card-text" id="tipe" name="tipe" value="<?= $row['tipe']; ?>"><?= $row['tipe']; ?></p>
